@@ -1,9 +1,3 @@
-telebot
-time
-re
-random
-datetime
-os
 googlesearch
 gtts
 youtubesearchpython
