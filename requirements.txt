@@ -1,3 +1,4 @@
+pyTelegramBotAPI
 googlesearch-python
 gtts
 youtube-search-python
