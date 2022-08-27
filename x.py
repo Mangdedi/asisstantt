@@ -355,7 +355,7 @@ def info(message: telebot.types.Message):
 def id_message(message):
     chat_id = message.chat.id
     bot.send_chat_action(message.chat.id, 'typing')
-    bot.reply_to(message, 'Id : `{}`' .format(chat_id),parse_mode='Markdown')
+    bot.reply_to(message, f'Id : `{chat_id}`',parse_mode='Markdown')
 #KALENDER
 @bot.message_handler(regexp=("^\.kalender$"))
 def kalender(message):
