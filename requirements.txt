@@ -1,3 +1,4 @@
+googlesearch-python
 gtts
 youtubesearchpython
 pytz
