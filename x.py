@@ -152,6 +152,7 @@ def mp4(message):
         bot.reply_to(message,'URL Eror silahkah masukan url yang benar!!')
         bot.delete_message(message.chat.id,x.message_id)
 
+
 @bot.message_handler(commands=['mp3'])
 def mp3(message):
     try:
@@ -172,6 +173,7 @@ def mp3(message):
             bot.send_chat_action(message.chat.id,'typing')
             bot.reply_to(message,'URL Eror silahkah masukan url yang benar!!')
             bot.delete_message(message.chat.id,x.message_id)
+
 
 # AFK
 @bot.message_handler(commands=['afk']) 
@@ -645,5 +647,5 @@ x ="""
 for i in x:
     print(i,end="",flush=True)
     time.sleep(0.05)
-bot.infinity_polling(none_stop=True)
+bot.infinity_polling(non_stop=True)
 #bot.polling()
