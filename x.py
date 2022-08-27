@@ -139,8 +139,9 @@ def mp4(message):
         x = bot.reply_to(message,'Sedang mendownload mohon tunggu sebentar...')
         video = YouTube(link)
         title = video.title
-        stream = video.streams.get_highest_resolution()
-        print(stream)
+        #stream = video.streams.get_highest_resolution()
+        stream = video.streams.filter(progressive=True).last()
+        #print(stream)
         i = stream.download()
         bot.send_chat_action(message.chat.id,'upload_video')
         bot.send_video(message.chat.id,open(i, "rb"),caption = title,reply_to_message_id= message.message_id)
@@ -159,9 +160,10 @@ def mp3(message):
         x = bot.reply_to(message,'Sedang mendownload mohon tunggu sebentar...')
         audio = YouTube(link)
         title = audio.title
-        stream = audio.streams.get_highest_resolution()
-        print(stream)
-        i = stream.download(f'{title}.mp3')
+        #stream = audio.streams.get_highest_resolution()
+        stream = audio.streams.filter(only_audio=True).all()[1]
+        #print(stream)
+        i = stream.download()
         bot.send_chat_action(message.chat.id,'upload_audio')
         bot.send_audio(message.chat.id,open(i, "rb"),caption = title,reply_to_message_id= message.message_id)
         bot.delete_message(message.chat.id,x.message_id)
