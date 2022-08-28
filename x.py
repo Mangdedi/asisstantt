@@ -650,4 +650,4 @@ for i in x:
     print(i,end="",flush=True)
     time.sleep(0.05)
 #bot.infinity_polling(non_stop=True)
-bot.polling(non_stop=True)
+bot.polling(non_stop=True, timeout=None)
