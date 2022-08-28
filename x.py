@@ -142,17 +142,13 @@ def mp4(message):
         #stream = video.streams.get_highest_resolution()
         #stream = video.streams.filter(progressive=True).last()
         #print(stream)
-        stream = video.streams.filter(adaptive=output_adaptive, file_extension="mp4").get_by_resolution("360")
-        if stream.filesize == 12000:
+        stream = video.streams.filter(file_extension="mp4").get_by_resolution("360")
         #stream = video.streams.get_by_itag(18)
-            i = stream.download()
-            bot.send_chat_action(message.chat.id,'upload_video')
-            bot.send_video(message.chat.id,open(i, "rb"),caption = title,reply_to_message_id= message.message_id)
-            bot.delete_message(message.chat.id,x.message_id)
-            os.remove(i)
-        else:
-            bot.reply_to(message,'Ukuran melebihi yang ditetapkan')
-
+        i = stream.download()
+        bot.send_chat_action(message.chat.id,'upload_video')
+        bot.send_video(message.chat.id,open(i, "rb"),caption = title,reply_to_message_id= message.message_id)
+        bot.delete_message(message.chat.id,x.message_id)
+        os.remove(i)
     except:
         bot.send_chat_action(message.chat.id,'typing')
         bot.reply_to(message,'URL Eror silahkah masukan url yang benar!!')
