@@ -142,7 +142,7 @@ def mp4(message):
         #stream = video.streams.get_highest_resolution()
         #stream = video.streams.filter(progressive=True).last()
         #print(stream)
-        stream = video.streams.filter(file_extension="mp4").get_by_resolution("360")
+        stream = video.streams.filter(adaptive=output_adaptive, file_extension="mp4").get_by_resolution("360")
         if stream.filesize < 1950000000:
         #stream = video.streams.get_by_itag(18)
             i = stream.download()
