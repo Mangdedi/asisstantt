@@ -23,17 +23,17 @@ user_id ={}
     #print('Tick! The time is: %s' % datetime.now()) 
 
 def pagi():
-    bot.send_message(-1001635371062,'Selamat Pagi semua\nYok bangun semua sarapan dulu terus lakukan kegiatannya jangan pada malas🤗')
+    bot.send_message(-1001591815268,'Selamat Pagi semua\nYok bangun semua sarapan dulu terus lakukan kegiatannya jangan pada malas🤗')
 
 def siang():
-    bot.send_message(-1001635371062,'Selamat Siang semua\nJangan lupa beristirahat dan makan siang juga🤗')
+    bot.send_message(-1001591815268,'Selamat Siang semua\nJangan lupa beristirahat dan makan siang juga🤗')
 
 def sore():
-    bot.send_message(-1001635371062,'Selamat Sore Semua\nPasti cape kan habis melakukan kegiatannya yok mandi biar wangi biar ga bau kayak 🐷')
+    bot.send_message(-1001591815268,'Selamat Sore Semua\nPasti cape kan habis melakukan kegiatannya yok mandi biar wangi biar ga bau kayak 🐷')
 def malam():
-    bot.send_message(-1001635371062,'Selamat Malam semua\nTidur ka jangan begadang, begadang gabakal bikin dia setia sama km hehe😋')
+    bot.send_message(-1001591815268,'Selamat Malam semua\nTidur ka jangan begadang, begadang gabakal bikin dia setia sama km hehe😋')
 def malam1():
-    bot.send_message(-1001635371062,'Selamat Malam semua\nAduh masi ada aja yang begadang,,begadang gabagus buat kesehatan 😏')
+    bot.send_message(-1001591815268,'Selamat Malam semua\nAduh masi ada aja yang begadang,,begadang gabagus buat kesehatan 😏')
 
 
 if __name__ == '__main__':
@@ -587,7 +587,7 @@ def message(message: telebot.types.Message):
                     bot.send_message(message.chat.id, f'❏<a href="tg://user?id={enti[i].user.id}">{enti[i].user.first_name}</a> 𝒔𝒆𝒅𝒂𝒏𝒈 𝑶𝒇𝒇𝒍𝒊𝒏𝒆\n└𝑲𝒂𝒓𝒆𝒏𝒂 = _{_afk[enti[i].user.id]}_', reply_to_message_id=message.message_id,parse_mode='Markdown')
 
 ch_id = '-1001576098315'
-to_id = '-1001635371062'
+to_id = ['-1001635371062','-1001591815268']
 @bot.channel_post_handler(content_types=['text','photo','video'])
 def text(message):
     bot.forward_message(to_id,ch_id,message.message_id)
