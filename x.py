@@ -587,7 +587,7 @@ def message(message: telebot.types.Message):
                     bot.send_message(message.chat.id, f'❏<a href="tg://user?id={enti[i].user.id}">{enti[i].user.first_name}</a> 𝒔𝒆𝒅𝒂𝒏𝒈 𝑶𝒇𝒇𝒍𝒊𝒏𝒆\n└𝑲𝒂𝒓𝒆𝒏𝒂 = _{_afk[enti[i].user.id]}_', reply_to_message_id=message.message_id,parse_mode='Markdown')
 
 ch_id = '-1001576098315'
-to_id = ['-1001635371062','-1001591815268']
+to_id = '-1001635371062','-1001591815268'
 @bot.channel_post_handler(content_types=['text','photo','video'])
 def text(message):
     bot.forward_message(to_id,ch_id,message.message_id)
