@@ -301,7 +301,7 @@ def welcome(message):
                 t -= 1
                 b += f" {simb} {username}  » {custom_t}\n"
     bot.send_chat_action(message.chat.id, 'typing')
-    return bot.send_message(message.chat.id, f"{b}", parse_mode='Markdown')
+    bot.send_message(message.chat.id, f"{b}")
 
 #PROFILE
 @bot.message_handler(regexp=('^\.profile$'))
