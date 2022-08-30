@@ -3,6 +3,7 @@ import re
 import random
 import datetime
 import os
+import requests
 from googlesearch import search
 from gtts import gTTS
 from youtubesearchpython import VideosSearch
@@ -131,7 +132,6 @@ def cari(message):
         bot.send_chat_action(message.chat.id, 'typing')
         bot.reply_to(message, judul+"\n"+url)
 #DOWNLOADER
-
 @bot.message_handler(commands=['mp4'])
 def mp4(message):
     try:
@@ -154,7 +154,6 @@ def mp4(message):
         bot.send_chat_action(message.chat.id,'typing')
         bot.reply_to(message,'URL Eror ATAU Ukuran file terlalu besar!!\nBatas ukuran file 50MB')
         bot.delete_message(message.chat.id,x.message_id)
-
 
 @bot.message_handler(commands=['mp3'])
 def mp3(message):
@@ -268,6 +267,72 @@ def _hadir(message):
         bot.delete_message(chat_id=message.chat.id,message_id=psn.message_id)
     except:
         bot.reply_to(message, str(join_))'''
+
+#CONVERT
+@bot.message_handler(regexp=("^\.stiker$"))
+def hapus(message):
+    if message.reply_to_message:
+        if message.reply_to_message.photo:
+            file = message.reply_to_message.photo[-1].file_id
+            newfile = bot.get_file(file)
+            downloaded_file = bot.download_file(newfile.file_path)
+            with open('hasil.jpg','wb') as new_file:
+                new_file.write(downloaded_file)
+                new_file.close()
+                bot.send_sticker(message.chat.id,open('hasil.jpg','rb'),reply_to_message_id=message.id)
+                os.remove('hasil.jpg')         
+        else:
+            bot.reply_to(message,'Silahkan reply photo supaya bisa diconvert ke stiker\nPerintah :\n1. .stiker : stiker normal\n2. .stiker2 : stiker tanpa background\n3. .toimage : stiker ke photo')
+    else:
+        bot.reply_to(message,'Silahkan reply photo supaya bisa diconvert ke stiker\nPerintah :\n1. .stiker : stiker normal\n2. .stiker2 : stiker tanpa background\n3. .toimage : stiker ke photo')
+
+@bot.message_handler(regexp=("^\.stiker2$"))
+def hapus(message):
+    if message.reply_to_message:
+        if message.reply_to_message.photo:           
+            file = message.reply_to_message.photo[-1].file_id
+            newfile = bot.get_file(file)
+            downloaded_file = bot.download_file(newfile.file_path)
+            with open('hasil.jpg','wb') as new_file:
+                new_file.write(downloaded_file)
+                new_file.close()
+                response = requests.post(
+                    'https://api.remove.bg/v1.0/removebg',
+                    files= {'image_file': open('hasil.jpg','rb')},
+                    data={'size': 'auto'},
+                    headers={'X-Api-Key': 'paDnX6YcS8neY2Fj1NoDceZf'},
+                )
+                if response.status_code == requests.codes.ok:
+                        with open('nobg.png', 'wb') as out:
+                            out.write(response.content)
+                            out.close()
+                            bot.send_sticker(message.chat.id,open("nobg.png","rb"),reply_to_message_id=message.id)
+                            os.remove('nobg.png')
+                            os.remove('hasil.jpg')
+                else:
+                    bot.send_message(message.chat.id,"Error:", response.status_code, response.text)
+        else:
+            bot.reply_to(message,'Silahkan reply photo supaya bisa diconvert ke stiker\nPerintah :\n1. .stiker : stiker normal\n2. .stiker2 : stiker tanpa background\n3. .toimage : stiker ke photo')   
+    else:
+        bot.reply_to(message,'Silahkan reply photo supaya bisa diconvert ke stiker\nPerintah :\n1. .stiker : stiker normal\n2. .stiker2 : stiker tanpa background\n3. .toimage : stiker ke photo')
+
+@bot.message_handler(regexp=("^\.toimage$"))
+def hapus(message):
+    if message.reply_to_message:
+        if message.reply_to_message.sticker:
+            file = message.reply_to_message.sticker.file_id
+            newfile = bot.get_file(file)
+            downloaded_file = bot.download_file(newfile.file_path)
+            with open('hasil.jpg','wb') as new_file:
+                new_file.write(downloaded_file)
+                new_file.close()
+                bot.send_photo(message.chat.id,open('hasil.jpg','rb'),reply_to_message_id=message.id)
+                os.remove('hasil.jpg')
+        else:
+            bot.reply_to(message,'Silahkan reply stiker supaya bisa diconvert ke photo\nPerintah :\n1. .stiker : stiker normal\n2. .stiker2 : stiker tanpa background\n3. .toimage : stiker ke photo')
+    else:
+        bot.reply_to(message,'Silahkan reply stiker supaya bisa diconvert ke photo\nPerintah :\n1. .stiker : stiker normal\n2. .stiker2 : stiker tanpa background\n3. .toimage : stiker ke photo')
+
 
 #STATS
 @bot.message_handler(regexp=("^\.stats$")) 
