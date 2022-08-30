@@ -5,3 +5,4 @@ youtube-search-python
 pytz
 apscheduler
 pytube
+requests
