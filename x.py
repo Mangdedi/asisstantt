@@ -139,19 +139,25 @@ def mp4(message):
         x = bot.reply_to(message,'Sedang mendownload mohon tunggu sebentar...')
         video = YouTube(link)
         title = video.title
+        Owner = video.channel_id
+        Length = video.length
+        Publish = video.publish_date
+        Rating = video.rating
+        Views = video.views
+        Size = video.filesize
         #stream = video.streams.get_highest_resolution()
-        stream = video.streams.filter(resolution="720p").first()
+        stream = video.streams.filter(resolution="360p").first()
         #print(stream)
         #streams = video.streams.filter(progressive=True, file_extension="mp4")
         #stream = video.streams.get_by_itag(18)
         i = stream.download()
         bot.send_chat_action(message.chat.id,'upload_video')
-        bot.send_video(message.chat.id,open(i, "rb"),caption = title,reply_to_message_id= message.message_id)
+        bot.send_video(message.chat.id,open(i, "rb"),caption = f"Judul:{title}\nChannel:{Owner}\nDurasi:{Length}\nRilis:{Publish}\nPeringkat:{Rating}\nDilihat:{Views}\nUkuran file:{Size}",reply_to_message_id= message.message_id)
         bot.delete_message(message.chat.id,x.message_id)
         os.remove(i)
     except:
         bot.send_chat_action(message.chat.id,'typing')
-        bot.reply_to(message,'URL Eror silahkah masukan url yang benar!!')
+        bot.reply_to(message,'URL Eror ATAU Ukuran file terlalu besar!!\nBatas ukuran file 50MB')
         bot.delete_message(message.chat.id,x.message_id)
 
 
@@ -163,17 +169,23 @@ def mp3(message):
         x = bot.reply_to(message,'Sedang mendownload mohon tunggu sebentar...')
         audio = YouTube(link)
         title = audio.title
+        Owner = video.channel_id
+        Length = video.length
+        Publish = video.publish_date
+        Rating = video.rating
+        Views = video.views
+        Size = video.filesize
         #stream = audio.streams.get_highest_resolution()
         stream = audio.streams.filter(only_audio=True).all()[1]
         #print(stream)
         i = stream.download()
         bot.send_chat_action(message.chat.id,'upload_audio')
-        bot.send_audio(message.chat.id,open(i, "rb"),caption = title,reply_to_message_id= message.message_id)
+        bot.send_audio(message.chat.id,open(i, "rb"),caption = f"Judul:{title}\nChannel:{Owner}\nDurasi:{Length}\nRilis:{Publish}\nPeringkat:{Rating}\nDilihat:{Views}\nUkuran file:{Size},reply_to_message_id= message.message_id)
         bot.delete_message(message.chat.id,x.message_id)
         os.remove(i)
     except:
             bot.send_chat_action(message.chat.id,'typing')
-            bot.reply_to(message,'URL Eror silahkah masukan url yang benar!!')
+            bot.reply_to(message,'URL Eror ATAU Ukuran file terlalu besar!!\nBatas ukuran file 50MB')
             bot.delete_message(message.chat.id,x.message_id)
 
 
