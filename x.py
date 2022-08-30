@@ -151,8 +151,9 @@ def mp4(message):
         #streams = video.streams.filter(progressive=True, file_extension="mp4")
         #stream = video.streams.get_by_itag(18)
         i = stream.download()
+        kata = f"Judul:{title}\nChannel:{Owner}\nDurasi:{Length}\nRilis:{Publish}\nPeringkat:{Rating}\nDilihat:{Views}\nUkuran file:{Size}"
         bot.send_chat_action(message.chat.id,'upload_video')
-        bot.send_video(message.chat.id,open(i, "rb"),caption = f"Judul:{title}\nChannel:{Owner}\nDurasi:{Length}\nRilis:{Publish}\nPeringkat:{Rating}\nDilihat:{Views}\nUkuran file:{Size}",reply_to_message_id= message.message_id)
+        bot.send_video(message.chat.id,open(i, "rb"),caption =kata,reply_to_message_id= message.message_id)
         bot.delete_message(message.chat.id,x.message_id)
         os.remove(i)
     except:
