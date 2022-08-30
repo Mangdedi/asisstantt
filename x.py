@@ -140,10 +140,10 @@ def mp4(message):
         video = YouTube(link)
         title = video.title
         #stream = video.streams.get_highest_resolution()
-        #stream = video.streams.filter(progressive=True).last()
+        stream = video.streams.filter(progressive=True,resolution="360p").first()
         #print(stream)
-        streams = video.streams.filter(progressive=True, file_extension="mp4")
-        stream = video.streams.get_by_itag(18)
+        #streams = video.streams.filter(progressive=True, file_extension="mp4")
+        #stream = video.streams.get_by_itag(18)
         i = stream.download()
         bot.send_chat_action(message.chat.id,'upload_video')
         bot.send_video(message.chat.id,open(i, "rb"),caption = title,reply_to_message_id= message.message_id)
