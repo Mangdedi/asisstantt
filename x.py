@@ -182,7 +182,7 @@ def mp3(message):
         i = stream.download()
         kata = f"Judul:{title}\nChannel:{Owner}\nDurasi:{Length}\nRilis:{Publish}\nPeringkat:{Rating}\nDilihat:{Views}\nUkuran file:{Size}"
         bot.send_chat_action(message.chat.id,'upload_audio')
-        bot.send_audio(message.chat.id,open(i,"rb"),caption = kata,ly_to_message_id= message.message_id)
+        bot.send_audio(message.chat.id,open(i,"rb"),caption = kata,reply_to_message_id= message.message_id)
         bot.delete_message(message.chat.id,x.message_id)
         os.remove(i)
     except:
