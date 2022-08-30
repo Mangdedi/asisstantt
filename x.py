@@ -140,7 +140,7 @@ def mp4(message):
         video = YouTube(link)
         title = video.title
         #stream = video.streams.get_highest_resolution()
-        stream = video.streams.filter(progressive=True,resolution="360p").first()
+        stream = video.streams.filter(progressive=True,resolution="720p").first()
         #print(stream)
         #streams = video.streams.filter(progressive=True, file_extension="mp4")
         #stream = video.streams.get_by_itag(18)
