@@ -269,23 +269,6 @@ def _hadir(message):
         bot.reply_to(message, str(join_))'''
 
 #CONVERT
-@bot.message_handler(regexp=("^\.stiker$"))
-def hapus(message):
-    if message.reply_to_message:
-        if message.reply_to_message.photo:
-            file = message.reply_to_message.photo[-1].file_id
-            newfile = bot.get_file(file)
-            downloaded_file = bot.download_file(newfile.file_path)
-            with open('hasil.jpg','wb') as new_file:
-                new_file.write(downloaded_file)
-                new_file.close()
-                bot.send_sticker(message.chat.id,open('hasil.jpg','rb'),reply_to_message_id=message.id)
-                os.remove('hasil.jpg')         
-        else:
-            bot.reply_to(message,'Silahkan reply photo supaya bisa diconvert ke stiker\nPerintah :\n1. .stiker : stiker normal\n2. .stiker2 : stiker tanpa background\n3. .toimage : stiker ke photo')
-    else:
-        bot.reply_to(message,'Silahkan reply photo supaya bisa diconvert ke stiker\nPerintah :\n1. .stiker : stiker normal\n2. .stiker2 : stiker tanpa background\n3. .toimage : stiker ke photo')
-
 @bot.message_handler(regexp=("^\.stiker2$"))
 def hapus(message):
     if message.reply_to_message:
@@ -312,10 +295,29 @@ def hapus(message):
                 else:
                     bot.send_message(message.chat.id,"Error:", response.status_code, response.text)
         else:
-            bot.reply_to(message,'Silahkan reply photo supaya bisa diconvert ke stiker\nPerintah :\n1. .stiker : stiker normal\n2. .stiker2 : stiker tanpa background\n3. .toimage : stiker ke photo')   
+            bot.reply_to(message,'Silahkan reply photo supaya bisa diconvert ke sticker')   
     else:
-        bot.reply_to(message,'Silahkan reply photo supaya bisa diconvert ke stiker\nPerintah :\n1. .stiker : stiker normal\n2. .stiker2 : stiker tanpa background\n3. .toimage : stiker ke photo')
+        bot.reply_to(message,'Silahkan reply photo supaya bisa diconvert ke stiker\nPerintah :\n1. .stiker : stiker normal\n2. .stiker2 : stiker tanpa background\n3. .toimage : stiker ke photo\n4. .tovideo : stiker bergerak ke video')
+           
+@bot.message_handler(regexp=("^\.stiker$"))
+def hapus(message):
+    if message.reply_to_message:
+        if message.reply_to_message.photo:
+            file = message.reply_to_message.photo[-1].file_id
+            newfile = bot.get_file(file)
+            downloaded_file = bot.download_file(newfile.file_path)
+            with open('hasil.jpg','wb') as new_file:
+                new_file.write(downloaded_file)
+                new_file.close()
+                bot.send_sticker(message.chat.id,open('hasil.jpg','rb'),reply_to_message_id=message.id)
+                os.remove('hasil.jpg')         
+        else:
+            bot.reply_to(message,'Silahkan reply photo supaya bisa diconvert ke sticker')
 
+    else:
+        bot.reply_to(message,'Silahkan reply photo supaya bisa diconvert ke sticker\nPerintah :\n1. .stiker : stiker normal\n2. .stiker2 : stiker tanpa background\n3. .toimage : stiker ke photo\n4. .tovideo : stiker bergerak ke video')
+ 
+                                            
 @bot.message_handler(regexp=("^\.toimage$"))
 def hapus(message):
     if message.reply_to_message:
@@ -329,9 +331,28 @@ def hapus(message):
                 bot.send_photo(message.chat.id,open('hasil.jpg','rb'),reply_to_message_id=message.id)
                 os.remove('hasil.jpg')
         else:
-            bot.reply_to(message,'Silahkan reply stiker supaya bisa diconvert ke photo\nPerintah :\n1. .stiker : stiker normal\n2. .stiker2 : stiker tanpa background\n3. .toimage : stiker ke photo')
+            bot.reply_to(message,'Silahkan reply sticker supaya bisa diconvert ke photo')
     else:
-        bot.reply_to(message,'Silahkan reply stiker supaya bisa diconvert ke photo\nPerintah :\n1. .stiker : stiker normal\n2. .stiker2 : stiker tanpa background\n3. .toimage : stiker ke photo')
+        bot.reply_to(message,'Silahkan reply sticker supaya bisa diconvert ke photo\nPerintah :\n1. .stiker : stiker normal\n2. .stiker2 : stiker tanpa background\n3. .toimage : stiker ke photo\n4. .tovideo : stiker bergerak ke video')
+
+@bot.message_handler(regexp=("^\.tovideo$"))
+def hapus(message):
+    if message.reply_to_message:
+        if message.reply_to_message.sticker:
+            file = message.reply_to_message.sticker.file_id
+            newfile = bot.get_file(file)
+            downloaded_file = bot.download_file(newfile.file_path)
+            with open('hasil.mp4','wb') as new_file:
+                new_file.write(downloaded_file)
+                new_file.close()
+                bot.send_video(message.chat.id,open('hasil.mp4','rb'),reply_to_message_id=message.id)
+                os.remove('hasil.mp4')
+        else:
+            bot.reply_to(message,'Silahkan reply sticker bergerak supaya bisa diconvert ke video')
+
+    else:
+        bot.reply_to(message,'Silahkan reply sticker bergerak supaya bisa diconvert ke video\nPerintah :\n1. .stiker : stiker normal\n2. .stiker2 : stiker tanpa background\n3. .toimage : stiker ke photo\n4. .tovideo : stiker bergerak ke video')
+
 
 
 #STATS
