@@ -25,7 +25,7 @@ user_id ={}
 
 def pagi():
     bot.send_message(-1001591815268,'Selamat Pagi semua\nYok bangun semua sarapan dulu terus lakukan kegiatannya jangan pada malas🤗')
-    bot.send_message(-1001724003370,'Selamat Pagi semua\nYok bangun semua sarapan dulu terus lakukan kegiatannya jangan pada 
+    bot.send_message(-1001724003370,'Selamat Pagi semua\nYok bangun semua sarapan dulu terus lakukan kegiatannya jangan pada malas🤗') 
 def siang():
     bot.send_message(-1001591815268,'Selamat Siang semua\nJangan lupa beristirahat dan makan siang juga🤗')
     bot.send_message(-1001724003370,'Selamat Siang semua\nJangan lupa beristirahat dan makan siang juga🤗')
