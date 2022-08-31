@@ -161,7 +161,7 @@ def mp4(message):
         user_id = message.from_user.id
         mention = "["+first_name+"](tg://user?id="+str(user_id)+")"
         bot.send_chat_action(message.chat.id,'typing')
-        bot.send_message(message.chat.id,'Maaf {mention} URL Eror ATAU Ukuran file terlalu besar!!\nBatas ukuran file 50MB',parse_mode='Markdown')
+        bot.send_message(message.chat.id,f'Maaf {mention} URL Eror ATAU Ukuran file terlalu besar!!\nBatas ukuran file 50MB',parse_mode='Markdown')
         bot.delete_message(message.chat.id,x.message_id)
 
 @bot.message_handler(commands=['mp3'])
@@ -191,7 +191,7 @@ def mp3(message):
         user_id = message.from_user.id
         mention = "["+first_name+"](tg://user?id="+str(user_id)+")"
         bot.send_chat_action(message.chat.id,'typing')
-        bot.send_message(message.chat.id,'Maaf {mention} URL Eror ATAU Ukuran file terlalu besar!!\nBatas ukuran file 50MB',parse_mode='Markdown')
+        bot.send_message(message.chat.id,f'Maaf {mention} URL Eror ATAU Ukuran file terlalu besar!!\nBatas ukuran file 50MB',parse_mode='Markdown')
         bot.delete_message(message.chat.id,x.message_id)
 
 # AFK
