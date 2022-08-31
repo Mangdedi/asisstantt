@@ -726,7 +726,7 @@ Mulai bot secara pribadi, jadi saya bisa mengirim pesan kesalahan yang ada kepad
         tag = "["+first_name+"](tg://user?id="+str(join)+")"
         bot.send_chat_action(message.chat.id, 'typing')
         bot.send_message(message.chat.id,f'𝙷𝚊𝚕𝚕𝚘 {tag} 𝚂𝚎𝚕𝚊𝚖𝚊𝚝 𝚍𝚊𝚝𝚊𝚗𝚐 𝚍𝚒𝚐𝚛𝚞𝚙 {message.chat.title} 𝚜𝚎𝚖𝚘𝚐𝚊 𝚋𝚎𝚝𝚊𝚑 𝚍𝚒𝚜𝚒𝚗𝚒:) ',parse_mode='Markdown')
-
+        bot.delete_message(message.chat.id, message.message_id)
 #@bot.channel_post_handler(func=lambda call: True)
 
 
