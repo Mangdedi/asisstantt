@@ -238,11 +238,11 @@ def sfs(msg):
     if result.status in ('member','administrator','creator'):
         bot.reply_to(msg, 'Terima kasih sudah subscribe @ori100Persen')
     else:
-        bot.reply_to(msg, 'My Creator CH\nSubscribe dulu @ori100Persen')'''
+        bot.reply_to(msg, 'My Creator CH\nSubscribe dulu @ori100Persen')
 
 @bot.message_handler(regexp=("(^|\s)lucas(\s|$)"))
 def bot(message):
-    bot.reply_to(message, 'Iya ada apa manggil tuan saya') 
+    bot.reply_to(message, 'Iya ada apa manggil tuan saya')'''
     
     
 # CEK AFK
