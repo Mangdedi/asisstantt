@@ -229,6 +229,22 @@ def afk_(msg: telebot.types.Message):
         return bot.send_message(msg.chat.id, f"❏{mention} 𝒕𝒆𝒍𝒂𝒉 𝑶𝒏𝒍𝒊𝒏𝒆", reply_to_message_id=msg.message_id,parse_mode='Markdown')
 
 
+#FILTER
+@bot.message_handler(regexp=("(^|\s)s+f+s+(\s|$)"))
+def sfs(msg):
+    channel = '-1001576098315'
+    user_id = msg.from_user.id
+    result = bot.get_chat_member(channel, user_id)
+    if result.status in ('member','administrator','creator'):
+        bot.reply_to(msg, 'Terima kasih sudah subscribe @ori100Persen')
+    else:
+        bot.reply_to(msg, 'My Creator CH\nSubscribe dulu @ori100Persen')
+
+@bot.message_handler(regexp=("(^|\s)lucas(\s|$)"))
+def bot(message):
+    bot.reply_to(message, 'Iya ada apa manggil tuan saya') 
+    
+    
 # CEK AFK
 @bot.message_handler(regexp=("^\.cekafk$"))
 def _hadir(message):
@@ -635,20 +651,7 @@ def mute_user(message):
         bot.send_chat_action(message.chat.id, 'typing')
         bot.reply_to(message, 'Reply pesan Pengguna yang mau di unmute!!!')
 
-#FILTER
-@bot.message_handler(regexp=("(^|\s)s+f+s+(\s|$)"))
-def sfs(msg):
-    channel = '-1001576098315'
-    user_id = msg.from_user.id
-    result = bot.get_chat_member(channel, user_id)
-    if result.status in ('member','administrator','creator'):
-        bot.reply_to(msg, 'Terima kasih sudah subscribe @ori100Persen')
-    else:
-        bot.reply_to(msg, 'My Creator CH\nSubscribe dulu @ori100Persen')
 
-@bot.message_handler(regexp=("(^|\s)lucas(\s|$)"))
-def bot(message):
-    bot.reply_to(message, 'Iya ada apa manggil tuan saya') 
 
 
 # TEXT AFK
