@@ -690,7 +690,7 @@ def pinmsg(message):
     if message.from_user.id != 5188484955:
         bot.send_chat_action(message.chat.id, 'typing')
         bot.send_message(message.chat.id, '{} 𝐓𝐞𝐥𝐚𝐡 𝐦𝐞𝐧𝐲𝐞𝐦𝐚𝐭𝐤𝐚𝐧 𝐩𝐞𝐬𝐚𝐧'.format(mention),parse_mode='Markdown')
-        bot.delete_message(message.chat.id,message.message_id)
+
 
 @bot.message_handler(content_types=['voice_chat_started'])
 def start_date(message):
@@ -718,7 +718,7 @@ def join(message):
         bot.send_message(message.chat.id, '''𝗧𝗲𝗿𝗶𝗺𝗮 𝗞𝗮𝘀𝗶𝗵 telah menambahkan saya ke grup anda!
 Jangan lupa untuk menjadikan saya Admin dari Grup ,atau saya tidak akan mampu untuk membalas perintah.
 Mulai bot secara pribadi, jadi saya bisa mengirim pesan kesalahan yang ada kepada anda, tanpa menghalangi obrolan ini!''')
-        bot.delete_message(message.chat.id,message.message_id)
+
     
     else:
         first_name = message.new_chat_members[0].first_name
@@ -726,7 +726,6 @@ Mulai bot secara pribadi, jadi saya bisa mengirim pesan kesalahan yang ada kepad
         tag = "["+first_name+"](tg://user?id="+str(join)+")"
         bot.send_chat_action(message.chat.id, 'typing')
         bot.send_message(message.chat.id,f'𝙷𝚊𝚕𝚕𝚘 {tag} 𝚂𝚎𝚕𝚊𝚖𝚊𝚝 𝚍𝚊𝚝𝚊𝚗𝚐 𝚍𝚒𝚐𝚛𝚞𝚙 {message.chat.title} 𝚜𝚎𝚖𝚘𝚐𝚊 𝚋𝚎𝚝𝚊𝚑 𝚍𝚒𝚜𝚒𝚗𝚒:) ',parse_mode='Markdown')
-        bot.delete_message(message.chat.id,message.message_id)
 
 #@bot.channel_post_handler(func=lambda call: True)
 
