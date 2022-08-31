@@ -230,7 +230,7 @@ def afk_(msg: telebot.types.Message):
 
 
 #FILTER
-@bot.message_handler(regexp=("(^|\s)s+f+s+(\s|$)"))
+'''@bot.message_handler(regexp=("(^|\s)s+f+s+(\s|$)"))
 def sfs(msg):
     channel = '-1001576098315'
     user_id = msg.from_user.id
@@ -238,7 +238,7 @@ def sfs(msg):
     if result.status in ('member','administrator','creator'):
         bot.reply_to(msg, 'Terima kasih sudah subscribe @ori100Persen')
     else:
-        bot.reply_to(msg, 'My Creator CH\nSubscribe dulu @ori100Persen')
+        bot.reply_to(msg, 'My Creator CH\nSubscribe dulu @ori100Persen')'''
 
 @bot.message_handler(regexp=("(^|\s)lucas(\s|$)"))
 def bot(message):
