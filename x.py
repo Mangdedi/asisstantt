@@ -230,7 +230,7 @@ def afk_(msg: telebot.types.Message):
 
 
 #FILTER
-'''@bot.message_handler(regexp=("(^|\s)s+f+s+(\s|$)"))
+@bot.message_handler(regexp=("(^|\s)s+f+s+(\s|$)"))
 def sfs(msg):
     channel = '-1001576098315'
     user_id = msg.from_user.id
@@ -241,8 +241,8 @@ def sfs(msg):
         bot.reply_to(msg, 'My Creator CH\nSubscribe dulu @ori100Persen')
 
 @bot.message_handler(regexp=("(^|\s)lucas(\s|$)"))
-def bot(message):
-    bot.reply_to(message, 'Iya ada apa manggil tuan saya')'''
+def lucas(message):
+    bot.reply_to(message, 'Iya ada apa manggil tuan saya')
     
     
 # CEK AFK
