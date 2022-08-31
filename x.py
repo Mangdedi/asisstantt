@@ -154,6 +154,9 @@ def mp4(message):
         bot.delete_message(message.chat.id,x.message_id)
         os.remove(i)
     except:
+        first_name = message.from_user.first_name
+        user_id = message.from_user.id
+        mention = "["+first_name+"](tg://user?id="+str(user_id)+")"
         bot.send_chat_action(message.chat.id,'typing')
         bot.send_message(message.chat.id,'Maaf {mention} URL Eror ATAU Ukuran file terlalu besar!!\nBatas ukuran file 50MB',parse_mode='Markdown')
         bot.delete_message(message.chat.id,x.message_id)
@@ -177,13 +180,16 @@ def mp3(message):
         #print(stream)
         i = stream.download()
         bot.send_chat_action(message.chat.id,'upload_audio')
-        bot.send_audio(message.chat.id,open(i, "rb"), caption = f"𝙹𝚞𝚍𝚞𝚕: {title}\n𝙳𝚞𝚛𝚊𝚜𝚒: {length}\n𝚄𝚙𝚕𝚘𝚊𝚍: {publish}\n𝚁𝚊𝚝𝚒𝚗𝚐: {rating}\n𝙿𝚎𝚗𝚘𝚗𝚝𝚘𝚗: {views}\n𝙿𝚎𝚛𝚖𝚒𝚗𝚝𝚊𝚊𝚗 𝚍𝚊𝚛𝚒: {mention}",parse_mode='Markdown')
+        bot.send_audio(message.chat.id,open(i, "rb"), caption = f"𝙹𝚞𝚍𝚞𝚕: {title}\n𝙳𝚞𝚛𝚊𝚜𝚒: {length}\n𝚄𝚙𝚕𝚘𝚊𝚍: {publish}\n𝚁𝚊𝚝𝚒𝚗𝚐: {rating}\n𝙿𝚎𝚗𝚍𝚎𝚗𝚐𝚊𝚛: {views}\n𝙿𝚎𝚛𝚖𝚒𝚗𝚝𝚊𝚊𝚗 𝚍𝚊𝚛𝚒: {mention}",parse_mode='Markdown')
         bot.delete_message(message.chat.id,x.message_id)
         os.remove(i)
     except:
-            bot.send_chat_action(message.chat.id,'typing')
-            bot.send_message(message.chat.id,'Maaf {mention} URL Eror ATAU Ukuran file terlalu besar!!\nBatas ukuran file 50MB',parse_mode='Markdown')
-            bot.delete_message(message.chat.id,x.message_id)
+        first_name = message.from_user.first_name
+        user_id = message.from_user.id
+        mention = "["+first_name+"](tg://user?id="+str(user_id)+")"
+        bot.send_chat_action(message.chat.id,'typing')
+        bot.send_message(message.chat.id,'Maaf {mention} URL Eror ATAU Ukuran file terlalu besar!!\nBatas ukuran file 50MB',parse_mode='Markdown')
+        bot.delete_message(message.chat.id,x.message_id)
 
 # AFK
 @bot.message_handler(commands=['afk']) 
