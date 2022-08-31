@@ -25,16 +25,19 @@ user_id ={}
 
 def pagi():
     bot.send_message(-1001591815268,'Selamat Pagi semua\nYok bangun semua sarapan dulu terus lakukan kegiatannya jangan pada malas🤗')
-
+    bot.send_message(-1001724003370,'Selamat Pagi semua\nYok bangun semua sarapan dulu terus lakukan kegiatannya jangan pada 
 def siang():
     bot.send_message(-1001591815268,'Selamat Siang semua\nJangan lupa beristirahat dan makan siang juga🤗')
-
+    bot.send_message(-1001724003370,'Selamat Siang semua\nJangan lupa beristirahat dan makan siang juga🤗')
 def sore():
     bot.send_message(-1001591815268,'Selamat Sore Semua\nPasti cape kan habis melakukan kegiatannya yok mandi biar wangi biar ga bau kayak 🐷')
+    bot.send_message(-1001724003370,'Selamat Sore Semua\nPasti cape kan habis melakukan kegiatannya yok mandi biar wangi biar ga bau kayak 🐷')
 def malam():
     bot.send_message(-1001591815268,'Selamat Malam semua\nTidur ka jangan begadang, begadang gabakal bikin dia setia sama km hehe😋')
+    bot.send_message(-1001724003370,'Selamat Malam semua\nTidur ka jangan begadang, begadang gabakal bikin dia setia sama km hehe😋') 
 def malam1():
     bot.send_message(-1001591815268,'Selamat Malam semua\nAduh masi ada aja yang begadang,,begadang gabagus buat kesehatan 😏')
+    bot.send_message(-1001724003370,'Selamat Malam semua\nAduh masi ada aja yang begadang,,begadang gabagus buat kesehatan 😏')
 
 
 if __name__ == '__main__':
@@ -643,13 +646,10 @@ def sfs(msg):
     else:
         bot.reply_to(msg, 'My Creator CH\nSubscribe dulu @ori100Persen')
 
-'''@bot.message_handler(regexp=("(^|\s)bot(\s|$)"))
+@bot.message_handler(regexp=("(^|\s)lucas(\s|$)"))
 def bot(message):
-    bot.reply_to(message, 'Ya kenapa') 
-    if message.chat.id == 1928677026:
-        bot.reply_to(message, 'Iyaa Hallo Boss')
-    else:
-        bot.reply_to(message, 'Ya kenapa)''' 
+    bot.reply_to(message, 'Iya ada apa manggil tuan saya') 
+
 
 # TEXT AFK
 @bot.message_handler(content_types=['text'])
@@ -691,8 +691,8 @@ ch_id = -1001576098315
 @bot.channel_post_handler(content_types=['text','photo','video'])
 def text(message):
     bot.forward_message(-1001635371062,ch_id,message.message_id)
-    bot.forward_message(-1001591815268 ,ch_id,message.message_id)
-
+    bot.forward_message(-1001591815268,ch_id,message.message_id)
+    bot.forward_message(-1001724003370,ch_id,message.message_id)
 
 @bot.message_handler(content_types=['pinned_message'])
 def pinmsg(message):
