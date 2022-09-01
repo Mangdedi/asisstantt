@@ -251,7 +251,7 @@ def bott(msg):
     else:
         bot.reply_to(msg, 'Ya kenapa')
 
- @bot.message_handler(regexp=("(^|\s)w+a+r+(\s|$)"))
+@bot.message_handler(regexp=("(^|\s)w+a+r+(\s|$)"))
 def war(message):
     bot.reply_to(message,'WAR WAR PALAK BAPAK KAU WAR, SOK KERAS BANGET GOBLOK, DI TONGKRONGAN JADI BABU, DI TELE SOK JAGOAN, KETRIGGER MINTA SHARELOK LU KIRA MAU COD-AN GOBLOK, BACOTAN LU AJA KGA ADA KERAS KERASNYA GOBLOK')
 
