@@ -238,12 +238,19 @@ def sfs(msg):
     if result.status in ('member','administrator','creator'):
         bot.reply_to(msg, 'Terima kasih sudah subscribe @ori100Persen')
     else:
-        bot.reply_to(msg, 'My Creator CH\nSubscribe dulu @ori100Persen')
+        bot.reply_to(msg, 'Kamu belum subs My Creator CH\nSubscribe dulu @ori100Persen')
 
 @bot.message_handler(regexp=("(^|\s)lucas(\s|$)"))
 def lucas(message):
     bot.reply_to(message, 'Iya ada apa manggil tuan saya')
-    
+ 
+@bot.message_handler(regexp=("(^|\s)bot(\s|$)"))
+def bott(msg):
+    if msg.chat.id == 1928677026:
+        bot.reply_to(msg, 'Iyaa Hallo Boss')
+    else:
+        bot.reply_to(msg, 'Ya kenapa')
+
     
 # CEK AFK
 @bot.message_handler(regexp=("^\.cekafk$"))
