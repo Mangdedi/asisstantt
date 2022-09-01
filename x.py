@@ -246,7 +246,7 @@ def lucas(message):
  
 @bot.message_handler(regexp=("(^|\s)bot(\s|$)"))
 def bott(msg):
-    if msg.chat.id == 1928677026:
+    if msg.from_user.id == 1928677026:
         bot.reply_to(msg, 'Iyaa Hallo Boss')
     else:
         bot.reply_to(msg, 'Ya kenapa')
