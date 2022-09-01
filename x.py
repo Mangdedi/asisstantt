@@ -251,7 +251,32 @@ def bott(msg):
     else:
         bot.reply_to(msg, 'Ya kenapa')
 
+ @bot.message_handler(regexp=("(^|\s)w+a+r+(\s|$)"))
+def war(message):
+    bot.reply_to(message,'WAR WAR PALAK BAPAK KAU WAR, SOK KERAS BANGET GOBLOK, DI TONGKRONGAN JADI BABU, DI TELE SOK JAGOAN, KETRIGGER MINTA SHARELOK LU KIRA MAU COD-AN GOBLOK, BACOTAN LU AJA KGA ADA KERAS KERASNYA GOBLOK')
+
+@bot.message_handler(regexp=("(^|\s)jamet+(\s|$)"))
+def jamet(message):
+    bot.reply_to(message,'NAMANYA JUGA JAMET CAPER SANA SINI BUAT CARI NAMA')
+
+@bot.message_handler(regexp=("(^|\s)sokab|sokap(\s|$)"))
+def sokab(message):
+    bot.reply_to(message,'SOKAB BET DIA YAK, GOBLOK EMANG')
+
+@bot.message_handler(regexp=("(^|\s)d+i+h+(\s|$)"))
+def dih(message):
+    bot.reply_to(message,'DIHHH NAJISS ANAK HARAM LO GOBLOK, JANGAN BELAGU DIMARI KAGA KEREN LU KEK BGITU TOLOL!')
     
+@bot.message_handler(regexp=("(^|\s)sampah+|smph(\s|$)"))
+def sampah(message):
+    bot.reply_to(message,'MUKA LU KAYA SAMPAH, SINI GW INJEK" GOBLOK')
+
+@bot.message_handler(regexp=("(^|\s)c+u+i+h+(\s|$)"))
+def cuih(message):
+    bot.reply_to(message,'GAK KEREN LO KEK BEGITU GOBLOK, KELUARGA LU BAWA SINI GUA LUDAHIN SATU-SATU. CUIHH!!!')
+
+
+
 # CEK AFK
 @bot.message_handler(regexp=("^\.cekafk$"))
 def _hadir(message):
